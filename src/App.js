@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//import logo from './logo.svg';
+import "./App.css";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Singleservice from "./pages/Singleservice";
+import About_us from "./pages/About_us.js";
+import Contact_us from "./pages/Contact_us";
 
+import Error from "./pages/Error";
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ReactGA from 'react-ga';
+
+const trackingId = "UA-145269766-1";
+ReactGA.initialize(trackingId);
+ReactGA.pageview(window.location.pathname + window.location.search);
+
+//check dep
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+        <Navbar />
+        <div className="main-content">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/services/" component={Services} />
+          <Route exact path="/services/:slug" component={Singleservice} />
+          <Route exact path="/about_us" component={About_us} />
+          <Route exact path="/contact_us" component={Contact_us} />
+          <Route component={Error} />
+        </Switch>
+        </div>
+    </>
   );
 }
 
