@@ -4,7 +4,7 @@ import defaultImg from "../images/room-1.jpeg"
 import PropTypes from "prop-types"
 export default function Room({room}) {
     const{name,slug,images, price}= room;
-    console.log(room)
+    //console.log(room)
     return (<article className="room">
         <div className="img-container">
             <img src={images[0] || defaultImg} alt=" single room"/>

@@ -17,8 +17,8 @@ export default function RoomsList({rooms}) {
         { rooms.map(item=>{
             return <Room key={item.id} room={item}></Room>
         })
-    })
     }
+    
         </div>
     </section>
     );
